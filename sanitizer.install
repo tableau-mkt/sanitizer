@@ -1,0 +1,17 @@
+<?php
+/**
+ * @file Update hooks and unistall.
+ */
+
+/**
+ * Implements hook_uninstall.
+ */
+function sanitizer_unistall() {
+  // Remove admin configurations.
+  global $conf;
+  foreach($conf as $key => $value) {
+    if (0 === strpos($key, 'sanitizer_')) {
+      variable_del($conf[$key]);
+    }
+  }
+}

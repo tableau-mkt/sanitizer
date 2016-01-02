@@ -1,0 +1,18 @@
+<?php
+/**
+ * @file Sanitize your data for security.
+ */
+
+/**
+* Implements hook_menu().
+*/
+function sanitizer_menu() {
+ return 'admin/config/system/sanitizer'] = array(
+   'title' => 'Sanitizer',
+   'description' => 'Sanitize your data.',
+   'type' => MENU_LOCAL_TASK,
+   'access arguments' => array('administer site configuration'),
+   'page callback' => 'drupal_get_form',
+   'file' => 'sanitizer.admin.inc'
+ );
+}
